@@ -160,7 +160,7 @@ class Analytics(object):
         id_ = hashlib.md5(id_to_hash.encode('utf8')).hexdigest()
         start_date = kwargs.get('start_date')
         end_date = kwargs.get('end_date')
-        columns = ','.join([kwargs.get('dimensions'), kwargs.get('metrics')])
+        columns = ','.join([kwargs.get('dimensions',''), kwargs.get('metrics','')])
         columns = columns.split(',')
         dtypes = {dimension: str for dimension in kwargs.get("dimensions","").split(",")}
         dtypes.update({metric: float for metric in kwargs.get("metrics", "").split(",")})
